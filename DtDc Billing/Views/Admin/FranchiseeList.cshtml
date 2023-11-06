@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "FranchiseeList";
+    Html.EnableClientValidation(true);
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<style>
+    #frmEmp, #menu2, #frmEmp1{
+        margin: 15px 0;
+        text-align: left;
+    }
+    .franchiess-edit{
+        padding:0 15px;
+    }
+</style>
+
+<div class="">
+    
+</div>
+<section class="content-wrapper" >
+    
+        <div class="row" >
+            <div class="col-md-12 " >
+                <ul id="Tab" class="nav nav-tabs franchiess-edit">
+                    <li class="active"><a data-toggle="tab" href="#home">Edit Franchisee</a></li>
+                    <li><a data-toggle="tab" href="#menu1">Edit Sectors</a></li>
+                    <li><a data-toggle="tab" href="#menu2">Upload Stamp</a></li>
+
+
+                </ul>
+                <div class="tab-content ">
+                    <div id="home" class="tab-pane fade in active">
+                        <div id="frmEmp">
+
+                            @{ Html.RenderPartial("Edit", (DtDc_Billing.Models.FranchiseeModel)ViewBag.Company);}
+                        </div>
+                    </div>
+                    <div id="menu1" class="tab-pane fade">
+                        <div id="frmEmp1">
+                            @{ Html.RenderPartial("Add_SectorPin", (IEnumerable<DtDc_Billing.Entity_FR.Sector>)ViewBag.Sectors);}
+
+                        </div>
+                    </div>
+                    <div id="menu2" class="tab-pane fade">
+                <div id="upload">
+                    @{ Html.RenderPartial("Upload_stamp");}
+
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+    
+</section>
